@@ -1,5 +1,7 @@
 This is just a simple project to illustrate an error that we experience in another more complex project when using onyx with tags. However, the basic structure is the same.
 
+This example right here is using onyx version 0.12.2 in combination with zookeeper version 3.5 and an embedded aeron.
+
 ## Usage
 
 1. build the project by invoking the build.sh using ```./build.sh```
@@ -22,3 +24,5 @@ If you were expecting your job to start now, either start more virtual peers or 
 ```
 
 **Note:** *The job id will change every time. The message above is just copied from stdout.*
+
+When removing the :onyx/required-tags key and its associated value from the catalog entries then the scheduler is able to find enough virtual peers and the job kicks off. However, the job will expectably fail since a task might get assigned to a peer that does not implement the required functionality.
